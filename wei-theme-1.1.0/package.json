@@ -2,14 +2,19 @@
   "name": "wei-glass-theme",
   "displayName": "Wei Glass Theme",
   "description": "A glassmorphism VS Code theme — translucent panels with classical Chinese elegance (胭脂/玉/金/紫). Background wallpaper included.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "icon": "./icon.png",
+  "main": "./extension.js",
   "publisher": "EthanWilkins",
   "engines": {
     "vscode": "^1.80.0"
   },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
   ],
   "license": "MIT",
   "keywords": [
@@ -27,6 +32,34 @@
     "url": "https://github.com/phoenixlucky/VScodeThemes.git"
   },
   "contributes": {
+    "commands": [
+      {
+        "command": "weiGlass.switchDark",
+        "title": "Wei Glass: 切换到深色主题"
+      },
+      {
+        "command": "weiGlass.switchLight",
+        "title": "Wei Glass: 切换到浅色主题"
+      },
+      {
+        "command": "weiGlass.toggleTheme",
+        "title": "Wei Glass: 深色/浅色一键切换"
+      },
+      {
+        "command": "weiGlass.showWallpaperTip",
+        "title": "Wei Glass: 查看壁纸说明"
+      }
+    ],
+    "configuration": {
+      "title": "Wei Glass",
+      "properties": {
+        "weiGlass.showWallpaperTip": {
+          "type": "boolean",
+          "default": true,
+          "description": "首次安装时显示壁纸和功能介绍提示"
+        }
+      }
+    },
     "themes": [
       {
         "label": "Wei Glass",
