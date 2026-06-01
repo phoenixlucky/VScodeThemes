@@ -13,6 +13,13 @@
         "errorForeground": "#D6406A",
         "icon.foreground": "#7EC8E3",
 
+        "textLink.foreground": "#7EC8E3",
+        "textLink.activeForeground": "#6BCB9E",
+        "textPreformat.foreground": "#D4A853",
+        "textBlockQuote.background": "#F0EEE8E6",
+        "textBlockQuote.border": "#9B7FCF",
+        "textCodeBlock.background": "#F5F3EFE6",
+
         "titleBar.activeBackground": "#F0EEE8E6",
         "titleBar.activeForeground": "#2C2D3E",
         "titleBar.inactiveBackground": "#F5F3EFD9",

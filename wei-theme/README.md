@@ -159,6 +159,44 @@ code --install-extension wei-glass-theme-1.1.0.vsix
 
 ---
 
+## 📝 Markdown Preview Enhanced 完全兼容
+
+Wei Glass 的半透明玻璃背景在 MPE 预览中可能导致渲染异常。解决方案如下：
+
+### 方案一：使用内置预览（推荐）
+
+VS Code 自带的 Markdown 预览已完美支持 Wei Glass（已内置 `textLink`、`textBlockQuote`、`textCodeBlock` 等预览色键），直接点击编辑器右上角的预览图标即可。
+
+### 方案二：MPE 加载自定义 CSS
+
+如果使用 [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) 扩展：
+
+1. 在 VS Code 设置中添加：
+
+```json
+"markdown-preview-enhanced.customCss": [
+  "E:\\home\\VScodeThemes\\wei-theme\\wei-glass-mpe.css"
+]
+```
+
+2. 或者创建 `.vscode/settings.json`（项目级），填入：
+
+```json
+{
+  "markdown-preview-enhanced.customCss": [
+    "${workspaceRoot}/wei-theme/wei-glass-mpe.css"
+  ]
+}
+```
+
+3. 重载 MPE 预览窗口（`Ctrl+Shift+V` 打开即可自动生效）。
+
+CSS 文件位于 `wei-theme/wei-glass-mpe.css`，包含深色/浅色双模式适配。
+
+> 💡 该 CSS 使用 Wei Glass 完整配色（胭脂红、青玉、琉璃蓝、紫磨金、琥珀黄），但采用**实色背景**以避免透明穿透。编辑器内的玻璃效果不受影响。
+
+---
+
 ## 📄 许可
 
 个人作品，自由使用与修改。
