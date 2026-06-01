@@ -1,0 +1,37 @@
+{
+  "name": "wei-glass-theme",
+  "displayName": "Wei Glass Theme",
+  "description": "A glassmorphism VS Code theme — translucent panels with classical Chinese elegance (胭脂/玉/金/紫). Background wallpaper included.",
+  "version": "1.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.13.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "glassmorphism",
+    "glass",
+    "classical",
+    "elegant",
+    "dark",
+    "light"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Wei Glass",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wei-glass-dark.json"
+      },
+      {
+        "label": "Wei Glass Light",
+        "uiTheme": "vs",
+        "path": "./themes/wei-glass-light.json"
+      }
+    ]
+  }
+}
