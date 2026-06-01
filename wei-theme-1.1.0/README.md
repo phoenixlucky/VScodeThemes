@@ -1,57 +1,164 @@
-# Aurora Theme
+# Wei Glass Theme
 
-A Dracula-inspired VS Code theme. Deep purple-black canvas with vivid pink keywords, green functions, cyan types, and purple constants. Includes **Aurora** (dark) and **Aurora Light** variants.
+> 玻璃拟态 · 中式古典 — 半透明磨砂面板 + 胭脂/玉/金/紫配色
 
-## Palette
+一款 **Glassmorphism（玻璃拟态）** 风格的 VS Code 双色主题。背景采用半透明磨砂质感，让代码仿佛悬浮于毛玻璃之上。配色灵感源自中国传统色彩：胭脂红、青玉、琉璃蓝、紫磨金、琥珀黄。
 
-| Token         | Aurora (Dark)   | Aurora Light   |
-| ------------- | --------------- | -------------- |
-| Background    | `#282A36`       | `#FBFAF5`      |
-| Sidebar       | `#21222C`       | `#EFEDE5`      |
-| Title bar     | `#191A21`       | `#E8E5DC`      |
-| Foreground    | `#F8F8F2`       | `#282A36`      |
-| Comment       | `#6272A4`       | `#9094A0`      |
-| Keyword       | `#FF79C6`       | `#D03A88`      |
-| Function      | `#50FA7B`       | `#0E9A56`      |
-| Type / Class  | `#8BE9FD`       | `#0097B5`      |
-| String        | `#F1FA8C`       | `#A07200`      |
-| Constant      | `#BD93F9`       | `#7C45D9`      |
-| Parameter     | `#FFB86C`       | `#D67822`      |
-| Error         | `#FF5555`       | `#D62A4D`      |
+自带配套壁纸 `background.webp`，配合玻璃面板营造完整沉浸感。
 
-## Install (local)
+---
 
-1. Open the folder in VS Code and press `F5` to launch an Extension Development Host.
-2. In the new window press `Ctrl+K Ctrl+T` → pick **Aurora** or **Aurora Light**.
+## 🎨 调色板
 
-## Install (manual)
+### Wei Glass (深色)
 
-Copy the folder into your VS Code extensions directory:
+| Token | 色值 | 色名 |
+|-------|------|------|
+| 背景 | `#1A1B2EF2` | 深靛蓝半透明 |
+| 侧边栏 | `#1E1F35D9` | 磨砂紫灰 |
+| 标题栏 | `#16172CE6` | 更深邃磨砂 |
+| 前景 | `#EFEFF0` | 冷白 |
+| 注释 | `#5C5D7A` | 墨灰 |
+| **关键词** | `#E04A7C` | **胭脂红** |
+| **函数** | `#6BCB9E` | **青玉** |
+| **类型 / 类** | `#7EC8E3` | **琉璃蓝** |
+| **常量 / 布尔 / 数字** | `#9B7FCF` | **紫磨金** |
+| **字符串 / 参数** | `#D4A853` | **琥珀黄** |
+| 变量 | `#EFEFF0` | 冷白 |
+| HTML 标签 | `#E04A7C` | 胭脂红 |
+| CSS 属性名 | `#7EC8E3` | 琉璃蓝 |
+| CSS 选择器 (class/id) | `#6BCB9E` | 青玉 |
+| 错误 | `#E05A5A` | 朱砂 |
 
-- Windows: `%USERPROFILE%\.vscode\extensions\aurora-theme-1.1.0`
-- macOS / Linux: `~/.vscode/extensions/aurora-theme-1.1.0`
+### Wei Glass Light (浅色)
 
-Then reload VS Code (`Ctrl+R`).
+| Token | 色值 | 色名 |
+|-------|------|------|
+| 背景 | `#F7F5F0F2` | 宣纸白半透明 |
+| 侧边栏 | `#F0EEE8D9` | 米色磨砂 |
+| 标题栏 | `#EDEBE4E6` | 暖白磨砂 |
+| 前景 | `#2C2D3E` | 深灰 |
+| 注释 | `#A8A9BD` | 暖灰 |
+| **关键词** | `#E04A7C` | **胭脂红** |
+| **函数** | `#6BCB9E` | **青玉** |
+| **类型 / 类** | `#7EC8E3` | **琉璃蓝** |
+| **常量 / 布尔 / 数字** | `#9B7FCF` | **紫磨金** |
+| **字符串 / 参数** | `#D4A853` | **琥珀黄** |
+| 变量 | `#2C2D3E` | 深灰 |
+| HTML 标签 | `#E04A7C` | 胭脂红 |
+| 错误 | `#D6406A` | 朱砂 |
 
-## Package
+### 终端 ANSI (深色)
+
+| 色 | 普通 | 亮色 |
+|---|------|------|
+| 黑 | `#1E1F35` | `#5C5D7A` |
+| 红 | `#E05A5A` | `#E07070` |
+| 绿 | `#6BCB9E` | `#7FDBAE` |
+| 黄 | `#D4A853` | `#DFB866` |
+| 蓝 | `#7EC8E3` | `#8ED4EF` |
+| 品红 | `#E04A7C` | `#E8668E` |
+| 青 | `#6BCB9E` | `#7FDBAE` |
+| 白 | `#EFEFF0` | `#FFFFFF` |
+
+---
+
+## 🖼️ 预览
+
+主题自带玻璃拟态壁纸，渲染效果：
+
+```
+┌────────────────────────────────────────────┐
+│  ﹒  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  │
+│      ▓▓▓▓▓  sidebar        ▓▓▓▓▓▓▓▓▓▓     │
+│      ▓ code  ▓              ▓  editor  ▓    │
+│      ▓ ▓     ▓  ▓▓▓▓▓▓▓    ▓          ▓    │
+│      ▓ ▓     ▓  ▓ output ▓  ▓          ▓    │
+│      ▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓     │
+│  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·     │
+└────────────────────────────────────────────┘
+        玻璃磨砂背景 + 半透明面板
+```
+
+---
+
+## 📦 项目结构
+
+```
+wei-theme-1.1.0/
+├── package.json        # 扩展元信息
+├── README.md           # ← 本文件
+├── icon.png            # 扩展图标
+├── background.webp     # 玻璃拟态壁纸（建议设为桌面背景）
+└── themes/
+    ├── wei-glass-dark.json     # 深色主题定义
+    └── wei-glass-light.json    # 浅色主题定义
+```
+
+---
+
+## 🚀 安装
+
+### 本地开发安装（推荐）
+
+1. 在 VS Code 中打开本项目根目录（`VScodeThemes/`）
+2. 按 `F5` 启动 **Extension Development Host** 窗口
+3. 在新窗口中按 `Ctrl+K Ctrl+T` → 选择 **Wei Glass** 或 **Wei Glass Light**
+
+### 手动安装
+
+将 `wei-theme-1.1.0` 文件夹复制到 VS Code 扩展目录：
+
+| 系统 | 路径 |
+|------|------|
+| Windows | `%USERPROFILE%\.vscode\extensions\wei-theme-1.1.0` |
+| macOS / Linux | `~/.vscode/extensions/wei-theme-1.1.0` |
+
+然后重载 VS Code（`Ctrl+R` / `Cmd+R`）。
+
+### 打包 VSIX
 
 ```bash
 npm install -g @vscode/vsce
+cd wei-theme-1.1.0
 vsce package
-code --install-extension aurora-theme-1.1.0.vsix
+code --install-extension wei-glass-theme-1.1.0.vsix
 ```
 
-## Layout
+---
 
+## ⚙️ 推荐设置
+
+配合你当前的 `setting.json` 使用效果最佳：
+
+```json
+{
+  "workbench.colorTheme": "Wei Glass",
+  "editor.fontFamily": "'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.7,
+  "editor.letterSpacing": 0.5,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": true,
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true
+}
 ```
-VScodeThemes/
-├── package.json
-├── README.md
-└── themes/
-    ├── aurora-dark.json
-    └── aurora-light.json
-```
 
-## Customize
+---
 
-Edit any hex value in `themes/aurora-dark.json` (or `aurora-light.json`) and reload the window. See the [Theme Color Reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference) for the full list of UI keys.
+## 🎨 自定义
+
+编辑 `themes/wei-glass-dark.json` 或 `themes/wei-glass-light.json` 中的任意色值，保存后重载窗口即刻预览。
+
+参考：
+- [VS Code Theme Color Reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference) — UI 元素色键
+- [VS Code TextMate Scopes](https://code.visualstudio.com/api/extension-guides/color-theme#syntax-colors) — 语法高亮作用域
+
+---
+
+## 📄 许可
+
+个人作品，自由使用与修改。
