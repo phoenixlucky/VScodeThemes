@@ -4,13 +4,14 @@
   "description": "A glassmorphism VS Code theme — translucent panels with classical Chinese elegance (胭脂/玉/金/紫). Background wallpaper included.",
   "version": "1.1.0",
   "icon": "./icon.png",
-  "publisher": "local",
+  "publisher": "EthanWilkins",
   "engines": {
-    "vscode": "^1.13.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
     "Themes"
   ],
+  "license": "MIT",
   "keywords": [
     "theme",
     "color-theme",
@@ -21,6 +22,10 @@
     "dark",
     "light"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phoenixlucky/VScodeThemes.git"
+  },
   "contributes": {
     "themes": [
       {
