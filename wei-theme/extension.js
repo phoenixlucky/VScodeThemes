@@ -83,7 +83,7 @@ function activate(context) {
 }
 
 /** 应用 Wei Glass 推荐 VS Code 设置（首次安装时用户主动选择后执行） */
-function applyRecommendedSettings() {
+async function applyRecommendedSettings() {
   const target = vscode.ConfigurationTarget.Global;
   const config = vscode.workspace.getConfiguration();
 
@@ -143,11 +143,15 @@ function applyRecommendedSettings() {
     'terminal.integrated.cursorStyle': 'line',
   };
 
-  for (const [key, value] of Object.entries(settings)) {
-    config.update(key, value, target);
+  try {
+    for (const [key, value] of Object.entries(settings)) {
+      await config.update(key, value, target);
+    }
+    vscode.window.showInformationMessage('✅ Wei Glass 推荐设置已应用！重载窗口后生效。');
+  } catch (err) {
+    vscode.window.showErrorMessage('❌ 部分设置写入失败，请查看控制台日志。');
+    console.error('[Wei Glass] applyRecommendedSettings 错误:', err);
   }
-
-  vscode.window.showInformationMessage('✅ Wei Glass 推荐设置已应用！重载窗口后生效。');
 }
 
 function deactivate() {}
