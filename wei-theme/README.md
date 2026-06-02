@@ -86,10 +86,14 @@
 
 ```
 wei-theme/
-├── package.json        # 扩展元信息
-├── README.md           # ← 本文件
-├── icon.png            # 扩展图标
-├── background.webp     # 玻璃拟态壁纸（建议设为桌面背景）
+├── package.json            # 扩展元信息（含 5 个命令注册）
+├── extension.js            # 扩展入口（切换命令 + 首次安装推荐配置）
+├── LICENSE                 # GPL-3.0 开源协议
+├── README.md               # ← 本文件
+├── icon.png                # 扩展图标
+├── background.webp         # 玻璃拟态壁纸（建议设为桌面背景）
+├── defaultSettings.jsonc   # VS Code 默认配置快照（仅参考对照）
+├── wei-glass-mpe.css       # MPE 预览自定义 CSS（深色/浅色双模式）
 └── themes/
     ├── wei-glass-dark.json     # 深色主题定义
     └── wei-glass-light.json    # 浅色主题定义
@@ -127,25 +131,94 @@ code --install-extension wei-glass-theme-1.4.0.vsix
 
 ---
 
-## ⚙️ 推荐设置
+---
 
-配合你当前的 `setting.json` 使用效果最佳：
+## 💡 扩展功能详解
 
-```json
-{
-  "workbench.colorTheme": "Wei Glass",
-  "editor.fontFamily": "'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
-  "editor.fontLigatures": true,
-  "editor.lineHeight": 1.7,
-  "editor.letterSpacing": 0.5,
-  "editor.cursorBlinking": "expand",
-  "editor.cursorSmoothCaretAnimation": "on",
-  "window.titleBarStyle": "custom",
-  "window.commandCenter": true,
-  "editor.guides.bracketPairs": true,
-  "editor.bracketPairColorization.enabled": true
-}
+本主题附带一个 VS Code 扩展入口（`extension.js`），激活后提供以下功能。
+
+### 命令面板
+
+安装后可在 `Ctrl+Shift+P` 中搜索以下命令：
+
+| 命令 | 快捷键建议 | 说明 |
+|------|-----------|------|
+| `Wei Glass: 切换到深色主题` | — | 切换到 Wei Glass 深色变体 |
+| `Wei Glass: 切换到浅色主题` | — | 切换到 Wei Glass 浅色变体 |
+| `Wei Glass: 深色/浅色一键切换` | 可设快捷键 | 在深色/浅色之间循环切换 |
+| **`Wei Glass: 推荐设置引导`** | — | **手动弹出设置引导弹窗** |
+| `Wei Glass: 查看壁纸说明` | — | 查看壁纸安装指引 |
+
+> 💡 **一键切换**可以自定义快捷键：`Ctrl+K Ctrl+S` → 搜索 `weiGlass.toggleTheme` → 绑定你喜欢的键（如 `Ctrl+Shift+T`）。
+
+### 首次安装自动引导
+
+通过 **VS Code Marketplace** 安装此扩展后，首次重启 VS Code 会自动弹出引导弹窗：
+
 ```
+┌─────────────────────────────────────────────────┐
+│  ✨ Wei Glass 已激活！是否应用推荐设置？         │
+│  （主题、字体、行高、光标等）                    │
+│                                                 │
+│     [应用推荐设置]   [查看壁纸]   [切换主题]     │
+└─────────────────────────────────────────────────┘
+```
+
+点击 **「应用推荐设置」** 即可一键写入以下 **27 项配置**：
+
+| 类别 | 配置项 |
+|------|--------|
+| 🎨 **主题** | 颜色主题、图标主题、产品图标主题 |
+| 🔤 **字体** | Fira Code / JetBrains Mono / Cascadia Code、字号 15、字重 450、连字、行高 1.4、字距 0.5 |
+| 🖱️ **光标 & 动画** | 光标扩展动画、平滑插入动画、光标宽度 2、编辑器平滑滚动、列表平滑滚动 |
+| 🪟 **窗口** | 自定义标题栏、命令中心 |
+| ⬅️ **括号 & 缩进** | 括号配对着色 + 独立颜色池、缩进指引 + 活跃高亮 |
+| 📉 **缩略图** | 禁用（节省空间） |
+| ✨ **编辑器美化** | Whitespace 边界渲染、行高亮全部、粘性滚动（最多 3 行）、**上下留白 16px**（玻璃拟态呼吸感）、**圆角选中**、鼠标滚轮缩放 |
+| 💻 **终端** | Fira Code 字体、字号 14、行高 1.3、光标闪烁、光标样式 line |
+
+弹窗只出现一次（选择后自动静音）。之后想重新触发有两种方式：
+
+#### 方式一：命令面板手动触发
+
+`Ctrl+Shift+P` → 输入 `Wei Glass: 推荐设置引导` → 回车，弹窗再次出现。
+
+#### 方式二：修改配置后重启
+
+在 `settings.json` 中添加：
+```json
+"weiGlass.showWallpaperTip": true
+```
+保存后 `Ctrl+R` 重载 VS Code，启动时自动弹出。
+
+### 首次引导防重复机制
+
+```
+┌─────────────────────────────┐
+│  扩展激活                    │
+│  ↓                           │
+│  读取 weiGlass.showWallpaperTip    │
+│  ↓                           │
+│  true? ──→ 弹出引导弹窗          │
+│  │          ↓                 │
+│  │     设为 false (永不再弹)     │
+│  │          ↓                 │
+│  │     用户点击「应用推荐设置」    │
+│  │     → applyRecommendedSettings() │
+│  │          ↓                 │
+│  │     27 项写入全局配置        │
+│  │          ↓                 │
+│  │     ✅ 显示成功消息          │
+│  │          ↓                 │
+│  │     提示重载窗口后生效       │
+│  │                            │
+│  false → 跳过，不再打扰        │
+└─────────────────────────────┘
+```
+
+> 即使跳过首次引导，也随时可以通过 `weiGlass.applySetupGuide` 命令重新打开同一弹窗。
+
+---
 
 ---
 
