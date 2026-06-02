@@ -1,7 +1,7 @@
 # VS Code 主题集
 
 [![VS Code Marketplace](https://img.shields.io/badge/Marketplace-Wei%20Glass%20Theme-blue?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=EthanWilkins.wei-glass-theme)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](wei-theme/LICENSE)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 > 深色琉璃 · 浅色宣纸 · 两套精心打磨的 VS Code 主题
 
@@ -217,4 +217,6 @@ code --install-extension *.vsix
 
 ## 📄 许可
 
-个人作品，自由使用与修改。
+本项目采用 **GNU General Public License v3.0**（GPL-3.0）。
+
+您可以自由使用、修改和分发，但任何衍生作品必须以相同许可证开源。

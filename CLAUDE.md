@@ -35,7 +35,7 @@ VScodeThemes/
 ├── wei-theme/                  # Wei Glass 主题
 │   ├── package.json            # 扩展元信息
 │   ├── extension.js            # 扩展入口（切换命令 + 首次安装推荐配置）
-│   ├── LICENSE                 # MIT 开源协议
+│   ├── LICENSE                 # GPL-3.0 开源协议
 │   ├── icon.png                # 扩展图标
 │   ├── background.webp         # 玻璃拟态壁纸
 │   ├── defaultSettings.jsonc   # VS Code 默认配置快照
@@ -44,7 +44,7 @@ VScodeThemes/
 │       └── wei-glass-light.json
 ├── aurora-theme/       # Aurora 主题
 │   ├── package.json
-│   ├── LICENSE          # MIT 开源协议
+│   ├── LICENSE          # GPL-3.0 开源协议
 │   └── themes/
 │       ├── aurora-dark.json
 │       └── aurora-light.json
