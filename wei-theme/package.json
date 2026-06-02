@@ -2,7 +2,7 @@
   "name": "wei-glass-theme",
   "displayName": "Wei Glass Theme",
   "description": "A glassmorphism VS Code theme — translucent panels with classical Chinese elegance (胭脂/玉/金/紫). Background wallpaper included.",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "icon": "./icon.png",
   "main": "./extension.js",
   "publisher": "EthanWilkins",
