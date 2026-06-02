@@ -73,7 +73,7 @@ function applyRecommendedSettings() {
     'workbench.colorTheme': 'Wei Glass',
     'editor.fontFamily': "'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
     'editor.fontLigatures': true,
-    'editor.lineHeight': 1.7,
+    'editor.lineHeight': 1.4,
     'editor.cursorBlinking': 'expand',
     'editor.cursorSmoothCaretAnimation': 'on',
     'window.titleBarStyle': 'custom',

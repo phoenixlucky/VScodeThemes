@@ -9,7 +9,7 @@
   "editor.fontSize": 15,
   "editor.fontWeight": "450",
   "editor.fontLigatures": true,
-  "editor.lineHeight": 1.7,
+  "editor.lineHeight": 1.4,
   "editor.letterSpacing": 0.5,
 
   // === 光标 & 动画 ===
