@@ -31,54 +31,66 @@ function activate(context) {
   // ── 命令：手动触发推荐设置引导 ──
   context.subscriptions.push(
     vscode.commands.registerCommand('weiGlass.applySetupGuide', () => {
-      vscode.window.showInformationMessage(
-        '✨ Wei Glass 推荐设置引导',
-        '应用推荐设置', '查看壁纸', '切换主题'
-      ).then(selection => {
-        if (selection === '应用推荐设置') {
-          applyRecommendedSettings();
-        } else if (selection === '查看壁纸') {
-          vscode.commands.executeCommand('weiGlass.showWallpaperTip');
-        } else if (selection === '切换主题') {
-          vscode.commands.executeCommand('weiGlass.toggleTheme');
-        }
-      });
+      showSetupPicker('✨ Wei Glass 推荐设置引导');
     })
   );
 
   // ── 命令：打开壁纸设置提示 ──
   context.subscriptions.push(
     vscode.commands.registerCommand('weiGlass.showWallpaperTip', () => {
-      vscode.window.showInformationMessage(
-        'Wei Glass 主题自带玻璃拟态壁纸 (background.webp)，' +
-        '建议设为桌面背景以获得完整沉浸体验。',
-        '了解详情'
-      ).then(selection => {
-        if (selection === '了解详情') {
-          vscode.env.openExternal(vscode.Uri.parse(
-            'https://github.com/phoenixlucky/VScodeThemes/tree/main/wei-theme'
-          ));
-        }
-      });
+      showWallpaperTip();
     })
   );
 
   // ── 首次安装提示 + 推荐配置 ──
   const showTip = vscode.workspace.getConfiguration('weiGlass').get('showWallpaperTip');
   if (showTip) {
-    vscode.window.showInformationMessage(
-      '✨ Wei Glass 已激活！是否应用推荐设置？（主题、字体、行高、光标等）',
-      '应用推荐设置', '查看壁纸', '切换主题'
-    ).then(selection => {
-      if (selection === '应用推荐设置') {
-        applyRecommendedSettings();
-      } else if (selection === '查看壁纸') {
-        vscode.commands.executeCommand('weiGlass.showWallpaperTip');
-      } else if (selection === '切换主题') {
-        vscode.commands.executeCommand('weiGlass.toggleTheme');
-      }
-    });
+    showSetupPicker('✨ Wei Glass 已激活！是否应用推荐设置？');
     vscode.workspace.getConfiguration('weiGlass').update('showWallpaperTip', false, vscode.ConfigurationTarget.Global);
+  }
+}
+
+/** 居中拾取面板：选择要执行的操作 */
+async function showSetupPicker(title) {
+  const choice = await vscode.window.showQuickPick(
+    [
+      { label: '✅ 应用推荐设置', description: '写入 27 项配置（主题/字体/光标/终端/美化）' },
+      { label: '🖼️ 查看壁纸', description: '了解玻璃拟态壁纸安装方式' },
+      { label: '🔄 切换主题', description: '深色/浅色一键切换' },
+    ],
+    {
+      title: title,
+      placeHolder: '选择要执行的操作…',
+      ignoreFocusOut: false,
+    }
+  );
+  if (!choice) return;
+
+  if (choice.label.includes('应用推荐设置')) {
+    await applyRecommendedSettings();
+  } else if (choice.label.includes('壁纸')) {
+    showWallpaperTip();
+  } else if (choice.label.includes('切换主题')) {
+    vscode.commands.executeCommand('weiGlass.toggleTheme');
+  }
+}
+
+/** 显示壁纸说明 */
+async function showWallpaperTip() {
+  const choice = await vscode.window.showQuickPick(
+    [
+      { label: '🌐 了解详情', description: '在浏览器中打开壁纸说明页面' },
+    ],
+    {
+      title: 'Wei Glass 自带玻璃拟态壁纸 (background.webp)，建议设为桌面背景以获得完整沉浸体验。',
+      placeHolder: '选择操作…',
+      ignoreFocusOut: false,
+    }
+  );
+  if (choice?.label.includes('了解详情')) {
+    vscode.env.openExternal(vscode.Uri.parse(
+      'https://github.com/phoenixlucky/VScodeThemes/tree/main/wei-theme'
+    ));
   }
 }
 
@@ -147,7 +159,10 @@ async function applyRecommendedSettings() {
     for (const [key, value] of Object.entries(settings)) {
       await config.update(key, value, target);
     }
-    vscode.window.showInformationMessage('✅ Wei Glass 推荐设置已应用！重载窗口后生效。');
+    await vscode.window.showQuickPick(
+      [{ label: '✅ 已应用！重载窗口后生效', description: '按 Ctrl+R 或 Cmd+R 重载以查看完整效果' }],
+      { title: 'Wei Glass 推荐设置已写入 27 项配置', placeHolder: '已就绪，重载后生效', ignoreFocusOut: true }
+    );
   } catch (err) {
     vscode.window.showErrorMessage('❌ 部分设置写入失败，请查看控制台日志。');
     console.error('[Wei Glass] applyRecommendedSettings 错误:', err);
