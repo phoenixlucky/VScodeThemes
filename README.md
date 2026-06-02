@@ -26,7 +26,7 @@
 - **琥珀黄** `#D4A853` — 参数、字符串、警告，暖色平衡
 - **墨灰** `#5C5D7A` — 注释，退居幕后
 
-自带壁纸 `wei-theme-1.1.0/background.webp`，配合玻璃透明面板营造沉浸感。
+自带壁纸 `wei-theme/background.webp`，配合玻璃透明面板营造沉浸感。
 
 ### 调色板
 
@@ -104,7 +104,7 @@
 
 ```
 VScodeThemes/
-├── wei-theme-1.1.0/          # Wei Glass 主题
+├── wei-theme/          # Wei Glass 主题
 │   ├── package.json
 │   ├── README.md
 │   ├── icon.png
@@ -112,7 +112,7 @@ VScodeThemes/
 │   └── themes/
 │       ├── wei-glass-dark.json
 │       └── wei-glass-light.json
-├── aurora-theme-1.0.0/       # Aurora 主题
+├── aurora-theme/       # Aurora 主题
 │   ├── package.json
 │   ├── README.md
 │   └── themes/
@@ -149,7 +149,7 @@ VScodeThemes/
 
 ```bash
 npm install -g @vscode/vsce
-cd wei-theme-1.1.0   # 或 aurora-theme-1.0.0
+cd wei-theme   # 或 aurora-theme
 vsce package
 code --install-extension *.vsix
 ```

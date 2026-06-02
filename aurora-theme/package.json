@@ -2,7 +2,7 @@
   "name": "aurora-theme",
   "displayName": "Aurora Theme",
   "description": "A modern, eye-friendly VS Code theme inspired by the aurora borealis — deep night background with vibrant teal, violet and pink accents.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "EthanWilkins",
   "engines": {
     "vscode": "^1.80.0"

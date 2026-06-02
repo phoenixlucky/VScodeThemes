@@ -29,9 +29,9 @@ A modern VS Code theme inspired by the aurora borealis — deep night background
 
 Copy the folder into your VS Code extensions directory:
 
-- Windows: `%USERPROFILE%\.vscode\extensions\aurora-theme-1.0.0`
-- macOS:   `~/.vscode/extensions/aurora-theme-1.0.0`
-- Linux:   `~/.vscode/extensions/aurora-theme-1.0.0`
+- Windows: `%USERPROFILE%\.vscode\extensions\aurora-theme-1.1.0`
+- macOS:   `~/.vscode/extensions/aurora-theme-1.1.0`
+- Linux:   `~/.vscode/extensions/aurora-theme-1.1.0`
 
 Then reload VS Code (`Ctrl+R`).
 
@@ -42,10 +42,10 @@ npm install -g @vscode/vsce
 vsce package
 ```
 
-This produces `aurora-theme-1.0.0.vsix`. Install with:
+This produces `aurora-theme-1.1.0.vsix`. Install with:
 
 ```bash
-code --install-extension aurora-theme-1.0.0.vsix
+code --install-extension aurora-theme-1.1.0.vsix
 ```
 
 ## Project layout

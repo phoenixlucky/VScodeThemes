@@ -38,21 +38,23 @@ function activate(context) {
       ).then(selection => {
         if (selection === '了解详情') {
           vscode.env.openExternal(vscode.Uri.parse(
-            'https://github.com/phoenixlucky/VScodeThemes/tree/main/wei-theme-1.1.0'
+            'https://github.com/phoenixlucky/VScodeThemes/tree/main/wei-theme'
           ));
         }
       });
     })
   );
 
-  // ── 首次安装提示 ──
+  // ── 首次安装提示 + 推荐配置 ──
   const showTip = vscode.workspace.getConfiguration('weiGlass').get('showWallpaperTip');
   if (showTip) {
     vscode.window.showInformationMessage(
-      '✨ Wei Glass 已激活！试试 命令面板 → Wei Glass 查看所有功能。',
-      '查看壁纸', '切换主题'
+      '✨ Wei Glass 已激活！是否应用推荐设置？（主题、字体、行高、光标等）',
+      '应用推荐设置', '查看壁纸', '切换主题'
     ).then(selection => {
-      if (selection === '查看壁纸') {
+      if (selection === '应用推荐设置') {
+        applyRecommendedSettings();
+      } else if (selection === '查看壁纸') {
         vscode.commands.executeCommand('weiGlass.showWallpaperTip');
       } else if (selection === '切换主题') {
         vscode.commands.executeCommand('weiGlass.toggleTheme');
@@ -60,6 +62,31 @@ function activate(context) {
     });
     vscode.workspace.getConfiguration('weiGlass').update('showWallpaperTip', false, vscode.ConfigurationTarget.Global);
   }
+}
+
+/** 应用 Wei Glass 推荐 VS Code 设置（首次安装时用户主动选择后执行） */
+function applyRecommendedSettings() {
+  const target = vscode.ConfigurationTarget.Global;
+  const config = vscode.workspace.getConfiguration();
+
+  const settings = {
+    'workbench.colorTheme': 'Wei Glass',
+    'editor.fontFamily': "'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
+    'editor.fontLigatures': true,
+    'editor.lineHeight': 1.7,
+    'editor.cursorBlinking': 'expand',
+    'editor.cursorSmoothCaretAnimation': 'on',
+    'window.titleBarStyle': 'custom',
+    'window.commandCenter': true,
+    'editor.guides.bracketPairs': true,
+    'editor.bracketPairColorization.enabled': true,
+  };
+
+  for (const [key, value] of Object.entries(settings)) {
+    config.update(key, value, target);
+  }
+
+  vscode.window.showInformationMessage('✅ Wei Glass 推荐设置已应用！重载窗口后生效。');
 }
 
 function deactivate() {}

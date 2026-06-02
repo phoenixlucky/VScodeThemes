@@ -6,8 +6,8 @@
 
 | 主题 | 目录 | 风格 |
 |------|------|------|
-| **Wei Glass** ⭐ | `wei-theme-1.1.0/` | 玻璃拟态 · 中式古典（胭脂/玉/金/紫） |
-| **Aurora** | `aurora-theme-1.0.0/` | 极光灵感 · 深邃夜空（青绿/紫罗兰/玫瑰） |
+| **Wei Glass** ⭐ | `wei-theme/` | 玻璃拟态 · 中式古典（胭脂/玉/金/紫） |
+| **Aurora** | `aurora-theme/` | 极光灵感 · 深邃夜空（青绿/紫罗兰/玫瑰） |
 
 每个主题均包含 **深色** 与 **浅色** 两个变体。
 
@@ -32,14 +32,14 @@
 
 ```
 VScodeThemes/
-├── wei-theme-1.1.0/          # Wei Glass 主题
+├── wei-theme/          # Wei Glass 主题
 │   ├── package.json           # 扩展元信息
 │   ├── icon.png               # 扩展图标
 │   ├── background.webp        # 玻璃拟态壁纸
 │   └── themes/
 │       ├── wei-glass-dark.json
 │       └── wei-glass-light.json
-├── aurora-theme-1.0.0/       # Aurora 主题
+├── aurora-theme/       # Aurora 主题
 │   ├── package.json
 │   └── themes/
 │       ├── aurora-dark.json

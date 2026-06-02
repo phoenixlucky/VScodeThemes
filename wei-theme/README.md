@@ -85,7 +85,7 @@
 ## 📦 项目结构
 
 ```
-wei-theme-1.1.0/
+wei-theme/
 ├── package.json        # 扩展元信息
 ├── README.md           # ← 本文件
 ├── icon.png            # 扩展图标
@@ -107,12 +107,12 @@ wei-theme-1.1.0/
 
 ### 手动安装
 
-将 `wei-theme-1.1.0` 文件夹复制到 VS Code 扩展目录：
+将 `wei-theme` 文件夹复制到 VS Code 扩展目录：
 
 | 系统 | 路径 |
 |------|------|
-| Windows | `%USERPROFILE%\.vscode\extensions\wei-theme-1.1.0` |
-| macOS / Linux | `~/.vscode/extensions/wei-theme-1.1.0` |
+| Windows | `%USERPROFILE%\.vscode\extensions\wei-theme` |
+| macOS / Linux | `~/.vscode/extensions/wei-theme` |
 
 然后重载 VS Code（`Ctrl+R` / `Cmd+R`）。
 
@@ -120,9 +120,9 @@ wei-theme-1.1.0/
 
 ```bash
 npm install -g @vscode/vsce
-cd wei-theme-1.1.0
+cd wei-theme
 vsce package
-code --install-extension wei-glass-theme-1.1.0.vsix
+code --install-extension wei-glass-theme-1.4.0.vsix
 ```
 
 ---

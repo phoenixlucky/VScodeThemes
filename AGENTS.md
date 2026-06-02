@@ -69,6 +69,6 @@
 ### 6. 命名惯例
 
 - 主题标签（VS Code 中显示）: `"Wei Glass"`、`"Wei Glass Light"`、`"Aurora Dark"`、`"Aurora Light"`
-- 目录名: `wei-theme-1.1.0`、`aurora-theme-1.0.0`
+- 目录名: `wei-theme`、`aurora-theme`
 - 文件名: `wei-glass-dark.json`、`wei-glass-light.json`、`aurora-dark.json`、`aurora-light.json`
 - 变量命名: 中文色名（注释中使用）
