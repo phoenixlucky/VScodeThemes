@@ -63,6 +63,7 @@ VScodeThemes/
 | `weiGlass.switchDark` | 切换到 Wei Glass 深色 |
 | `weiGlass.switchLight` | 切换到 Wei Glass 浅色 |
 | `weiGlass.toggleTheme` | 深色/浅色循环切换 |
+| `weiGlass.applySetupGuide` | 手动触发推荐设置引导 |
 | `weiGlass.showWallpaperTip` | 查看壁纸说明 |
 
 ### applyRecommendedSettings()

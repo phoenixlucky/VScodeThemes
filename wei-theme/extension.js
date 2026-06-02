@@ -28,6 +28,24 @@ function activate(context) {
     })
   );
 
+  // ── 命令：手动触发推荐设置引导 ──
+  context.subscriptions.push(
+    vscode.commands.registerCommand('weiGlass.applySetupGuide', () => {
+      vscode.window.showInformationMessage(
+        '✨ Wei Glass 推荐设置引导',
+        '应用推荐设置', '查看壁纸', '切换主题'
+      ).then(selection => {
+        if (selection === '应用推荐设置') {
+          applyRecommendedSettings();
+        } else if (selection === '查看壁纸') {
+          vscode.commands.executeCommand('weiGlass.showWallpaperTip');
+        } else if (selection === '切换主题') {
+          vscode.commands.executeCommand('weiGlass.toggleTheme');
+        }
+      });
+    })
+  );
+
   // ── 命令：打开壁纸设置提示 ──
   context.subscriptions.push(
     vscode.commands.registerCommand('weiGlass.showWallpaperTip', () => {

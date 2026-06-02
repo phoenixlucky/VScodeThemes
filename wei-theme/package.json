@@ -46,6 +46,10 @@
         "title": "Wei Glass: 深色/浅色一键切换"
       },
       {
+        "command": "weiGlass.applySetupGuide",
+        "title": "Wei Glass: 推荐设置引导"
+      },
+      {
         "command": "weiGlass.showWallpaperTip",
         "title": "Wei Glass: 查看壁纸说明"
       }
