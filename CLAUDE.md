@@ -32,22 +32,68 @@
 
 ```
 VScodeThemes/
-├── wei-theme/          # Wei Glass 主题
-│   ├── package.json           # 扩展元信息
-│   ├── icon.png               # 扩展图标
-│   ├── background.webp        # 玻璃拟态壁纸
+├── wei-theme/                  # Wei Glass 主题
+│   ├── package.json            # 扩展元信息
+│   ├── extension.js            # 扩展入口（切换命令 + 首次安装推荐配置）
+│   ├── LICENSE                 # MIT 开源协议
+│   ├── icon.png                # 扩展图标
+│   ├── background.webp         # 玻璃拟态壁纸
+│   ├── defaultSettings.jsonc   # VS Code 默认配置快照
 │   └── themes/
 │       ├── wei-glass-dark.json
 │       └── wei-glass-light.json
 ├── aurora-theme/       # Aurora 主题
 │   ├── package.json
+│   ├── LICENSE          # MIT 开源协议
 │   └── themes/
 │       ├── aurora-dark.json
 │       └── aurora-light.json
-├── setting.json               # 用户 VS Code 配置
-├── CLAUDE.md                  # ← 本文件
+├── setting.json         # 用户 VS Code 配置
+├── AGENTS.md            # 智能体行为边界
+├── CLAUDE.md            # ← 本文件
 └── README.md
 ```
+
+## 扩展入口 (extension.js)
+
+`wei-theme/extension.js` 提供了四个 VS Code 命令和一个首次安装推荐设置流程：
+
+| 命令 | 功能 |
+|------|------|
+| `weiGlass.switchDark` | 切换到 Wei Glass 深色 |
+| `weiGlass.switchLight` | 切换到 Wei Glass 浅色 |
+| `weiGlass.toggleTheme` | 深色/浅色循环切换 |
+| `weiGlass.showWallpaperTip` | 查看壁纸说明 |
+
+### applyRecommendedSettings()
+
+首次安装时弹出提示，用户点击「应用推荐设置」后写入 **27 项配置** 到全局 settings.json：
+
+- 主题、图标主题、产品图标主题
+- 字体（Fira Code 等）、字号 15、字重 450、连字、行高 1.4、字距 0.5
+- 光标扩展动画、平滑插入动画、光标宽度 2、编辑器/列表平滑滚动
+- 自定义标题栏、命令中心
+- 括号配对着色（独立颜色池）、缩进指引（活跃高亮）
+- 缩略图禁用
+- Whitespace 边界渲染、行高亮全部、粘性滚动（最多 3 行）
+- 编辑器上下留白 16px（玻璃拟态呼吸感）、圆角选中、鼠标滚轮缩放
+- 终端字体/字号/行高/光标闪烁/光标样式
+
+## 发布记录
+
+| 版本 | 仓库提交 | 市场链接 |
+|------|---------|---------|
+| v1.4.0 | `0eb82c0` | [EthanWilkins.wei-glass-theme](https://marketplace.visualstudio.com/items?itemName=EthanWilkins.wei-glass-theme) |
+
+通过 `vsce publish` 发布至 VS Code Marketplace，publisher 为 `EthanWilkins`。
+
+## 相关文件
+
+| 文件 | 说明 |
+|------|------|
+| `AGENTS.md` | 智能体行为边界与文件归属规则 |
+| `setting.json` | 用户当前使用的 VS Code 配置（手写，非自动生成） |
+| `defaultSettings.jsonc` | VS Code 默认配置快照，仅作参考对照 |
 
 ## 主题 JSON 结构要点
 

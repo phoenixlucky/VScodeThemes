@@ -1,5 +1,8 @@
 # VS Code 主题集
 
+[![VS Code Marketplace](https://img.shields.io/badge/Marketplace-Wei%20Glass%20Theme-blue?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=EthanWilkins.wei-glass-theme)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](wei-theme/LICENSE)
+
 > 深色琉璃 · 浅色宣纸 · 两套精心打磨的 VS Code 主题
 
 本仓库收录了两套风格迥异的 VS Code 主题，均由个人手调配色、逐项打磨。当前推荐使用 **Wei Glass**——一款玻璃拟态（Glassmorphism）风格主题，灵感源自中国传统色彩美学。
@@ -104,24 +107,27 @@
 
 ```
 VScodeThemes/
-├── wei-theme/          # Wei Glass 主题
+├── wei-theme/                  # Wei Glass 主题（含扩展入口）
 │   ├── package.json
-│   ├── README.md
+│   ├── extension.js            # 扩展入口（切换命令 + 首次安装推荐配置）
+│   ├── LICENSE                 # MIT 开源协议
 │   ├── icon.png
-│   ├── background.webp        # 玻璃拟态壁纸
+│   ├── background.webp         # 玻璃拟态壁纸
 │   └── themes/
 │       ├── wei-glass-dark.json
 │       └── wei-glass-light.json
-├── aurora-theme/       # Aurora 主题
+├── aurora-theme/               # Aurora 主题
 │   ├── package.json
-│   ├── README.md
+│   ├── LICENSE                 # MIT 开源协议
 │   └── themes/
 │       ├── aurora-dark.json
 │       └── aurora-light.json
-├── setting.json               # 当前 VS Code 配置
+├── setting.json                # 当前 VS Code 配置
+├── AGENTS.md                   # 智能体行为边界
+├── CLAUDE.md
 ├── image.png
 ├── 豆蔻少女版260529.webp
-└── README.md                  # ← 本文件
+└── README.md                   # ← 本文件
 ```
 
 ---
@@ -164,18 +170,46 @@ code --install-extension *.vsix
 
 ## 📎 推荐设置
 
-当前 `setting.json` 中的关键配置（与你当前主题配合最佳）：
+安装 Wei Glass 后，首次启动会弹出提示 —— 点击 **「应用推荐设置」** 自动写入以下 **27 项配置**：
 
 ```json
 {
   "workbench.colorTheme": "Wei Glass",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
   "editor.fontFamily": "'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
+  "editor.fontSize": 15,
+  "editor.fontWeight": "450",
   "editor.fontLigatures": true,
   "editor.lineHeight": 1.4,
+  "editor.letterSpacing": 0.5,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 2,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
   "window.titleBarStyle": "custom",
-  "window.commandCenter": true
+  "window.commandCenter": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderLineHighlight": "all",
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.maxLineCount": 3,
+  "editor.padding.top": 16,
+  "editor.padding.bottom": 16,
+  "editor.roundedSelection": true,
+  "editor.mouseWheelZoom": true,
+  "terminal.integrated.fontFamily": "'Fira Code', 'JetBrains Mono', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.3,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line"
 }
 ```
 

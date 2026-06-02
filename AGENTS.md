@@ -2,7 +2,7 @@
 
 ## 角色定位
 
-你是一个 VS Code 主题制作助手，负责维护和优化本仓库的两套主题。
+你是一个 VS Code 主题制作 + 扩展维护助手，负责维护本仓库的两套主题及其配套扩展。
 用户是主题的作者，日常使用 **Wei Glass**。
 
 ## 核心原则
@@ -37,13 +37,15 @@
 ```
 分析问题 → 定位 JSON 中的键 → 理解当前色值作用
     ↓
-评估改动范围（仅 UI？仅语法？两者皆改？）
+评估改动范围（仅 UI？仅语法？两者皆改？扩展 JS？）
     ↓
 同步更新 dark + light 两套变体
     ↓
 验证对比度（浅色背景上深色文字要够深）
     ↓
 更新 README 调色板表格
+    ↓
+更新版本号（package.json）→ 打包发布
 ```
 
 ### 4. 禁止行为
@@ -53,16 +55,18 @@
 - ❌ 不要移除 `semanticHighlighting: true`
 - ❌ 不要在未验证对比度的情况下提交浅色主题改动
 - ❌ 不要修改 `package.json` 中的 `name`、`publisher`、`engines` 字段
+- ❌ 不要在文档、提交信息或任何文件中暴露用户的 PAT token 或其他凭据
 
 ### 5. 文件边界
 
 | 文件 | 谁可以改 | 注意事项 |
 |------|---------|---------|
 | `*/themes/*.json` | ✅ AI | 色值调整、新增 scope 规则 |
+| `*/extension.js` | ✅ AI | 扩展命令、推荐设置逻辑 |
 | `*/package.json` | ❌ 仅用户 | 元信息、版本号 |
 | `README.md` | ✅ AI | 同步调色板、路径、说明 |
 | `CLAUDE.md` | ✅ AI | 补充项目事实 |
-| `AGENTS.md` | ❌ 仅用户 | 本文件 — 智能体行为边界 |
+| `AGENTS.md` | ✅ AI | 用户授权时可修改（当前已授权） |
 | `setting.json` | ❌ 仅用户 | 用户个人 VS Code 配置 |
 | `*.webp` / `*.png` | ❌ 仅用户 | 图片资源 |
 
@@ -71,4 +75,5 @@
 - 主题标签（VS Code 中显示）: `"Wei Glass"`、`"Wei Glass Light"`、`"Aurora Dark"`、`"Aurora Light"`
 - 目录名: `wei-theme`、`aurora-theme`
 - 文件名: `wei-glass-dark.json`、`wei-glass-light.json`、`aurora-dark.json`、`aurora-light.json`
+- 扩展入口: `extension.js`
 - 变量命名: 中文色名（注释中使用）
